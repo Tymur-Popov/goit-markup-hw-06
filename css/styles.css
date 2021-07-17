@@ -1001,4 +1001,5 @@ li {
 
 .modal-form-btn {
   align-self: center;
+  cursor: pointer;
 }
