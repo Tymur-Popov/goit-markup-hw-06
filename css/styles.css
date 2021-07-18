@@ -25,6 +25,7 @@
   --filter-accent-background-color: #2196f3;
   --filter-accent-font-color: #ffffff;
   --footer-main-color: rgba(255, 255, 255, 0.6);
+  --font-weight-modal-label: 400;
   --main-duration: 250ms;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -74,6 +75,17 @@ li {
 }
 
 /* УТИЛИТЫ */
+
+.visually-hidden-checkbox {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
 
 .visually-hidden {
   position: absolute;
@@ -699,6 +711,87 @@ li {
   color: #ffffff;
 }
 
+.footer-mailing-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-top: 72px;
+}
+
+.footer-mailing-header {
+  font-family: var(--main-font);
+  font-weight: var(--font-weight-secondary);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  margin-bottom: 20px;
+}
+
+.footer-user-mail-input {
+  color: #ffffff;
+
+  padding: 15px 16px;
+
+  width: 358px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: var(--footer-back-color);
+
+  outline: none;
+}
+
+.footer-user-mail-input::placeholder {
+  font-family: var(--main-font);
+  font-weight: var(--font-weight-p);
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-user-mail-input:hover,
+.footer-user-mail-input:focus {
+  border-color: var(--accent-color);
+}
+
+.mailing-button-wrapper {
+  display: flex;
+}
+
+.footer-mailing-button {
+  color: #ffffff;
+  font-family: var(--main-font);
+  font-weight: var(--font-weight-secondary);
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+
+  background: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 29px;
+  padding-right: 28px;
+
+  margin-left: 12px;
+
+  cursor: pointer;
+}
+
+.footer-button-mail-icon {
+  margin-left: 10px;
+}
 /* FOOTER END */
 
 /* PORTFOLIO */
@@ -915,9 +1008,9 @@ li {
 
 .modal-form-field {
   font-family: var(--main-font);
+  font-weight: var(--font-weight-modal-label);
   font-size: 12px;
-  line-height: 0.85;
-
+  line-height: 14px;
   letter-spacing: 0.01em;
 
   color: #757575;
@@ -968,7 +1061,7 @@ li {
 .modal-form-message {
   resize: none;
 
-  width: 448px;
+  width: 100%;
   height: 120px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -980,18 +1073,49 @@ li {
   transition: border var(--main-duration) var(--timing-function);
 }
 
+.modal-form-message::placeholder {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+
 .modal-form-message:hover,
 .modal-form-message:focus {
   border-color: var(--accent-color);
 }
 
 .modal-form-checkbox-label {
+  display: flex;
+  align-items: center;
   font-family: var(--main-font);
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
 
   color: #757575;
+
+  margin-top: 20px;
+}
+
+.modal-form-checkbox-label::before {
+  display: block;
+  content: "";
+  background-image: url(../images/modal-checkbox/icon-checkbox.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 15px;
+  border: none;
+
+  margin-right: 7px;
+}
+
+.modal-form-checkbox:checked + .modal-form-checkbox-label::before {
+  background-image: url(../images/modal-checkbox/icon-checkbox-checked.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .modal-form-label-link {
@@ -1002,4 +1126,21 @@ li {
 .modal-form-btn {
   align-self: center;
   cursor: pointer;
+
+  color: #ffffff;
+  line-height: 1.87;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 16px;
+
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  padding: 10px 55px;
+  margin-top: 30px;
+
+  background: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 4px;
 }
